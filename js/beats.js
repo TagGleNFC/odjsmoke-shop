@@ -14,7 +14,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const noResults = document.getElementById("no-results");
     
     function createBeatCard(beat) {
-        const priceFormatted = `R$ ${beat.price.toFixed(2)}`;
+        let priceDisplay;
+        if (beat.onPromotion && beat.originalPrice) {
+            const originalPriceFormatted = `R$ ${beat.originalPrice.toFixed(2)}`;
+            const priceFormatted = `R$ ${beat.price.toFixed(2)}`;
+            priceDisplay = `
+                <span class="beat-price on-sale">
+                    <span class="original-price">${originalPriceFormatted}</span>
+                    ${priceFormatted}
+                </span>`;
+        } else {
+            const priceFormatted = `R$ ${beat.price.toFixed(2)}`;
+            priceDisplay = `<span class="beat-price">${priceFormatted}</span>`;
+        }
         
         return `
             <a href="pagina-beat.html?id=${beat.id}" class="beat-card-link">
@@ -28,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <h3 class="beat-title">${beat.title}</h3>
                         <div class="beat-details">
                             <span class="beat-bpm">${beat.bpm} BPM</span>
-                            <span class="beat-price">${priceFormatted}</span>
+                            ${priceDisplay}
                         </div>
                         <div class="card-buttons">
                             <span class="btn btn-outline btn-sm">Detalhes</span>

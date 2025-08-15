@@ -32,14 +32,27 @@ function shuffleArray(array) {
 }
 
 function createBeatCard(beat) {
-    const priceFormatted = `R$ ${beat.price.toFixed(2)}`;
+    let priceDisplay;
+    if (beat.onPromotion && beat.originalPrice) {
+        const originalPriceFormatted = `R$ ${beat.originalPrice.toFixed(2)}`;
+        const priceFormatted = `R$ ${beat.price.toFixed(2)}`;
+        priceDisplay = `
+            <span class="beat-price on-sale">
+                <span class="original-price">${originalPriceFormatted}</span>
+                ${priceFormatted}
+            </span>`;
+    } else {
+        const priceFormatted = `R$ ${beat.price.toFixed(2)}`;
+        priceDisplay = `<span class="beat-price">${priceFormatted}</span>`;
+    }
+
     return `
         <a href="pagina-beat.html?id=${beat.id}" class="beat-card-link">
             <div class="beat-card" data-id="${beat.id}">
                 <div class="beat-image"><img src="${beat.image}" alt="${beat.title}"></div>
                 <div class="beat-info">
                     <h3 class="beat-title">${beat.title}</h3>
-                    <div class="beat-details"><span class="beat-bpm">${beat.bpm} BPM</span><span class="beat-price">${priceFormatted}</span></div>
+                    <div class="beat-details"><span class="beat-bpm">${beat.bpm} BPM</span>${priceDisplay}</div>
                 </div>
             </div>
         </a>
@@ -88,7 +101,16 @@ function populatePageData(beat) {
     wrapper.querySelector('.beat-description-text').textContent = beat.description || 'Descrição não disponível.';
     wrapper.querySelector('.specs-list').innerHTML = `<li><strong>BPM:</strong> ${beat.bpm}</li><li><strong>Tonalidade:</strong> ${beat.key || 'N/A'}</li><li><strong>Gênero:</strong> ${beat.genre}</li>`;
     
-    wrapper.querySelector('.price-display .price').textContent = `R$ ${beat.price.toFixed(2)}`;
+    const priceDisplayContainer = wrapper.querySelector('.price-display');
+    if (beat.onPromotion && beat.originalPrice) {
+        priceDisplayContainer.innerHTML = `
+            <span class="price original-price-large">R$ ${beat.originalPrice.toFixed(2)}</span>
+            <span class="price">R$ ${beat.price.toFixed(2)}</span>
+            <span class="price-label">Licença Padrão</span>
+        `;
+    } else {
+        priceDisplayContainer.querySelector('.price').textContent = `R$ ${beat.price.toFixed(2)}`;
+    }
     
     const artworkImage = wrapper.querySelector('.artwork-image');
     artworkImage.src = beat.image;

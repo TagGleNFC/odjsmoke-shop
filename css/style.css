@@ -1227,3 +1227,28 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: #11479e;
 }
+/* === ESTILOS PARA PREÇO PROMOCIONAL NOS CARDS === */
+
+/*
+  Esta regra dá destaque (negrito e cor branca) ao contêiner
+  do preço quando o beat está em promoção.
+*/
+.beat-price.on-sale {
+    font-weight: 600;
+    color: #ffffff;
+}
+
+/*
+  Esta regra formata o preço original (antigo) para que
+  fique riscado, opaco e com uma fonte normal (não negrito).
+  A propriedade 'font-weight: 400' é a correção crucial
+  para garantir que ele não herde o negrito do estilo acima.
+*/
+.beat-price .original-price {
+    text-decoration: line-through;
+    color: #9ca3af;
+    font-size: 0.9em;
+    margin-right: 0.5rem;
+    opacity: 0.7;
+    font-weight: 400; /* Garante que o preço antigo NÃO fique em negrito */
+}

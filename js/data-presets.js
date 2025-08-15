@@ -4,6 +4,7 @@ const allPresets = [
     title: "Preset de Voz 'Mc Pedrinho'",
     highlightedSubtitle: "Transforme suas tracks com um vocal profissional.",
     price: 349.90,
+    purchaseLink: "https://pay.kirvano.com/6cf5b09c-fbeb-4192-8329-1f9cfe8a9a8c", // Link adicionado
     image: "imgs/capa5bandidas2.jpg",
     audio: "audios/preset5bandidas.mp3",
     description: "Eleve a qualidade da sua voz com o preset do 'Mc Pedrinho'. Projetado para dar brilho, presença e o punch necessário para suas tracks de Trap e Funk. Compatível com plugins nativos do FL Studio.",
@@ -30,6 +31,7 @@ const allPresets = [
     title: "Preset de Voz 'Mc Magal'",
     highlightedSubtitle: "O timbre perfeito para suas produções de funk.",
     price: 349.90,
+    purchaseLink: "https://pay.kirvano.com/1cff6469-4fe8-434c-be7a-fcf118412bb9", // Link adicionado
     image: "imgs/capamcmagal.jpg",
     audio: "audios/presetmcmagal.mp3",
     description: "Encontre o som autêntico do funk com o preset do 'Mc Magal'. Ideal para dar peso e clareza aos seus vocais, mantendo a fidelidade ao estilo. Compatível com plugins nativos do FL Studio.",
