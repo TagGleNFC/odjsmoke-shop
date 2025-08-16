@@ -3,7 +3,7 @@ const allPresets = [
     id: 1,
     title: "Preset de Voz 'Mc Pedrinho'",
     highlightedSubtitle: "Transforme suas tracks com um vocal profissional.",
-    price: 349.90,
+    price: 199.90,
     purchaseLink: "https://pay.kirvano.com/6cf5b09c-fbeb-4192-8329-1f9cfe8a9a8c", // Link adicionado
     image: "imgs/capa5bandidas2.jpg",
     audio: "audios/preset5bandidas.mp3",
@@ -30,7 +30,7 @@ const allPresets = [
     id: 2,
     title: "Preset de Voz 'Mc Magal'",
     highlightedSubtitle: "O timbre perfeito para suas produções de funk.",
-    price: 349.90,
+    price: 199.90,
     purchaseLink: "https://pay.kirvano.com/1cff6469-4fe8-434c-be7a-fcf118412bb9", // Link adicionado
     image: "imgs/capamcmagal.jpg",
     audio: "audios/presetmcmagal.mp3",
