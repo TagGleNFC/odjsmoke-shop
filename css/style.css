@@ -154,6 +154,9 @@ body {
   padding-top: 70px;
 }
 
+/* /css/style.css */
+
+/* Regra antiga modificada (filtro removido) */
 #hero-video {
   position: absolute;
   top: 50%;
@@ -165,17 +168,30 @@ body {
   height: auto;
   z-index: -1;
   object-fit: cover;
-  filter: brightness(0.5);
+  /* A linha "filter: brightness(0.5);" foi removida daqui */
 }
 
+/* Nova regra adicionada para o overlay */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Camada preta com 50% de opacidade */
+  z-index: 0; /* Garante que o overlay fique entre o vídeo e o conteúdo */
+}
+
+/* Ajuste no z-index do conteúdo para garantir que ele fique na frente do overlay */
 .hero-content {
   text-align: center;
-  z-index: 2;
+  z-index: 1; /* Alterado de 2 para 1, mas ainda acima do overlay */
   width: 100%;
   max-width: 800px;
   padding: 0 20px;
   position: relative;
-}
+} 
 
 .hero-title {
   display: none;
@@ -1018,7 +1034,7 @@ body {
 
 @media (max-width: 768px) {
   .hero {
-    height: 340px;
+    height: 510px;
   }
 
   .hero-logo {
@@ -1042,6 +1058,7 @@ body {
     font-size: 0.9rem;
     width: 80%;
     max-width: 280px;
+    justify-content: center; /* Adicionado para centralizar o conteúdo */
   }
 
   .hero .hero-buttons .btn-outline {
